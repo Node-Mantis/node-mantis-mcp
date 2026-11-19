@@ -1,0 +1,32 @@
+{
+  "baselineClientVersion": "0.1.9",
+  "description": "MCP source reorganized for publication; see README and SYNC.md.",
+  "files": {
+    ".gitignore": "1016888f076cfd2046fa0b6ad1b19763044d3335174e14f8e8c5b0ba8714ab0b",
+    "CONTRIBUTING.md": "d6aad7ca0b18727c76e8b6a501d2890770b82c18f393faa307a477f7ef91c070",
+    "LICENSE": "bbe461e8550c481aa823d533b41e83817f9b7046960403d4926ae13ede49c631",
+    "README.md": "9d369d1d2f40c57e7e91712ed7470b752c16e1c7c934408b1171584004a5d761",
+    "SYNC.md": "f4c3ed0abb8ce20f7af7b32939699a7b9dd1f35d22e1f65b4382b40b63bc48eb",
+    "fixtures/mcp-tools.json": "9a4f9053de43dcf3eb38f0a887707501dd5d25553e6617fd28813b177a2afe67",
+    "python/nodemantis_mcp/__init__.py": "54b3e51fbc21d9fee32811581bebd5a6a32682b7dbbc235cfa97be63c75c06e6",
+    "python/nodemantis_mcp/__main__.py": "5f63fb8d9a6bb7db1502e84368cd6aaa8e5150758a88d543507a5f0528cdd5f6",
+    "python/nodemantis_mcp/_mcp_client.py": "a2846ba2231cf39df7da7cbb7ac01ff69fc3d2873f2f3ee5d6d8a8f880688513",
+    "python/nodemantis_mcp/_mcp_protocol.py": "aba4ac2ae11408501e8c0c6b4b78a7f618a5f369648f7626334ee8f7d358aa1f",
+    "python/nodemantis_mcp/_mcp_server.py": "0d7ef9fa346a0028cae33f87c14ad44b388bb977f720468a974edc60de5a2d2f",
+    "python/nodemantis_mcp/_mcp_tasks.py": "3fd441cbc4d4981310fdc7f1880fde6c93b6c79fd6498366cf66fcb89483f183",
+    "python/requirements-dev.txt": "cfd0b25aa8dfa7b6c3167c71a5c0189da967051ff1c1011d638474b85023b63c",
+    "python/tests/test_mcp.py": "f48d9df9e6ab169bf96c962abf850dcd0f5f9203e673d66465ab0bca04a3c9dc",
+    "python/tests/test_stdio.py": "ba0777ba2a1783f8a8a4c9b4ae17e71a5a74cd20c5307366e1cecabe852e85ee",
+    "server.json": "add696cebd1be1c34b15ebcd661426f8a8e399610ddacb90b647c7f35eadeb84",
+    "typescript/package-lock.json": "e74c650641b7a2ec2006f2911043cdce225931b7ea10dc091dea6d55aa320535",
+    "typescript/package.json": "9c7cd25036132d6cf563cb8132be627c9cddf8d22f747e2c0216c16771df5fa0",
+    "typescript/playwright.config.ts": "c9fb74c95692e661fe4187f9abcd7cf5ea3d15f5cc4edc1dc02de17d3352a893",
+    "typescript/src/args.ts": "c6b9affa22af569468622cd36d9f890b055f26822aa25abb865592a7aa71e2ae",
+    "typescript/src/mcp-client.ts": "b45791a57a94bfc37b0e7eea2c3c3f588f6fccf1f030ae5e8bfc1ff39995ae01",
+    "typescript/src/mcp-jobs.ts": "671cc6b4e39a3e7c55038bec881833ab19c6b9b933f218c78c9eaba8be0ddd8f",
+    "typescript/src/mcp-protocol.ts": "a87aeb13151aa6cfb659f4182d43fa01a8547453672a53d3192add93a08bc1f6",
+    "typescript/src/mcp-server.ts": "c2d0e78856b1bd0e1d8c3b8e65d8a1af11eb7b030e8c426e3b7fbcf2518c4766",
+    "typescript/tests/mcp.spec.ts": "54b5d6f535b576b80bbc6a9836690116e1cd0d390663de0dcb2f583e272e04ff",
+    "typescript/tsconfig.json": "1e6d5078f30ddab7e875a6651700d613d076f1435718a1294f61a695d61db50b"
+  }
+}

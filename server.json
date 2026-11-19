@@ -1,0 +1,61 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "com.nodemantis/node-mantis",
+  "title": "Node Mantis",
+  "description": "Run website tasks from a plain-English request in a real browser and get structured data back.",
+  "websiteUrl": "https://nodemantis.com/docs/mcp",
+  "version": "0.1.9",
+  "packages": [
+    {
+      "registryType": "npm",
+      "identifier": "node-mantis",
+      "version": "0.1.9",
+      "transport": {
+        "type": "stdio"
+      },
+      "packageArguments": [
+        {
+          "type": "positional",
+          "value": "mcp"
+        }
+      ],
+      "environmentVariables": [
+        {
+          "name": "NODEMANTIS_API_KEY",
+          "description": "Node Mantis API key from the dashboard at https://nodemantis.com.",
+          "isRequired": true,
+          "isSecret": true,
+          "format": "string"
+        }
+      ]
+    },
+    {
+      "registryType": "pypi",
+      "identifier": "node-mantis",
+      "version": "0.1.9",
+      "runtimeHint": "uvx",
+      "transport": {
+        "type": "stdio"
+      },
+      "packageArguments": [
+        {
+          "type": "positional",
+          "value": "mcp"
+        }
+      ],
+      "environmentVariables": [
+        {
+          "name": "NODEMANTIS_API_KEY",
+          "description": "Node Mantis API key from the dashboard at https://nodemantis.com.",
+          "isRequired": true,
+          "isSecret": true,
+          "format": "string"
+        }
+      ]
+    }
+  ],
+  "repository": {
+    "url": "https://github.com/Node-Mantis/node-mantis-mcp",
+    "source": "github"
+  }
+}

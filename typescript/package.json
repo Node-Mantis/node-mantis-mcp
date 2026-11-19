@@ -1,0 +1,16 @@
+{
+  "name": "node-mantis-mcp-source",
+  "version": "0.1.9",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "test": "playwright test",
+    "typecheck": "tsgo --noEmit"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.59.1",
+    "@types/node": "^22.0.0",
+    "@typescript/native-preview": "7.0.0-dev.20260430.1",
+    "node-mantis": "0.1.9"
+  }
+}

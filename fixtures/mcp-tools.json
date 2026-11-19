@@ -1,0 +1,185 @@
+{
+  "tools": [
+    {
+      "name": "run_task",
+      "title": "Run a website task",
+      "description": "Carry out a task on a website from a plain-English goal: navigate, click, type, fill in forms and read the outcome, in a real browser. Returns the outcome and, when result_schema is given, the data in that shape. If the task is still going when the call returns, the reply has status \"running\" and a task_id: call get_task with it. Each call starts a fresh browser session with no saved logins.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "goal": {
+            "type": "string",
+            "description": "What to accomplish, with every detail needed to finish it, e.g. \"Find the cheapest direct flight from Boston to Denver on March 3 and return the airline, times and price\"."
+          },
+          "start_url": {
+            "type": "string",
+            "description": "Page to open first (http or https). Omit to let the task find its own way."
+          },
+          "result_schema": {
+            "type": "object",
+            "description": "JSON Schema describing the shape of the data to return, for example {\"type\":\"object\",\"properties\":{\"price\":{\"type\":\"number\"}},\"required\":[\"price\"]}. Omit it for a free-form answer."
+          },
+          "effort": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "xhigh"
+            ],
+            "description": "How much capability to spend. Default medium; raise it for hard pages, lower it for simple ones."
+          },
+          "max_cost_usd": {
+            "type": "number",
+            "exclusiveMinimum": 0,
+            "description": "Stop once the task has spent this many US dollars."
+          },
+          "max_steps": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 200,
+            "description": "Stop after this many steps. Default 30."
+          },
+          "timeout_seconds": {
+            "type": "integer",
+            "minimum": 10,
+            "maximum": 3600,
+            "description": "Stop after this long. Default 300."
+          },
+          "secrets": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Names of private values the task may type (passwords, one-time codes). Each value is read from NODEMANTIS_SECRET_<NAME> in this server's environment; refer to one in the goal as <secret:NAME>."
+          },
+          "use_proxy": {
+            "type": "boolean",
+            "description": "Route the browser through the proxy configured in this server's environment. Default false."
+          },
+          "show_browser": {
+            "type": "boolean",
+            "description": "Show the browser window while the task runs. Default false unless the server was started with --headed."
+          }
+        },
+        "required": [
+          "goal"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Run a website task",
+        "readOnlyHint": false,
+        "destructiveHint": true,
+        "idempotentHint": false,
+        "openWorldHint": true
+      }
+    },
+    {
+      "name": "retrieve_data",
+      "title": "Read data from a page",
+      "description": "Open one page and read data from it without changing anything on it. Returns the data, shaped by result_schema when given. Use run_task instead when getting to the data takes clicking, typing or several pages. If reading is still going when the call returns, the reply has status \"running\" and a task_id: call get_task with it.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "The page to read (http or https)."
+          },
+          "prompt": {
+            "type": "string",
+            "description": "What to read from the page, e.g. \"every listing with its title, price and link\"."
+          },
+          "result_schema": {
+            "type": "object",
+            "description": "JSON Schema describing the shape of the data to return, for example {\"type\":\"object\",\"properties\":{\"price\":{\"type\":\"number\"}},\"required\":[\"price\"]}. Omit it for a free-form answer."
+          },
+          "effort": {
+            "type": "string",
+            "enum": [
+              "low",
+              "medium",
+              "high",
+              "xhigh"
+            ],
+            "description": "How much capability to spend. Default medium; raise it for hard pages, lower it for simple ones."
+          },
+          "use_proxy": {
+            "type": "boolean",
+            "description": "Route the browser through the proxy configured in this server's environment. Default false."
+          },
+          "show_browser": {
+            "type": "boolean",
+            "description": "Show the browser window while the task runs. Default false unless the server was started with --headed."
+          }
+        },
+        "required": [
+          "url",
+          "prompt"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Read data from a page",
+        "readOnlyHint": true,
+        "idempotentHint": true,
+        "openWorldHint": true
+      }
+    },
+    {
+      "name": "get_task",
+      "title": "Check a task",
+      "description": "Wait for a task started by run_task or retrieve_data and return its status, latest progress and, once finished, its result. Returns as soon as the task finishes, or after wait_seconds with status \"running\" (call again). Tasks are kept for an hour after they finish and are lost when this server restarts.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "task_id": {
+            "type": "string",
+            "description": "The task_id returned by run_task or retrieve_data."
+          },
+          "wait_seconds": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 600,
+            "description": "How long to wait for the task to finish before answering. 0 answers immediately."
+          }
+        },
+        "required": [
+          "task_id"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Check a task",
+        "readOnlyHint": true,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    },
+    {
+      "name": "cancel_task",
+      "title": "Cancel a task",
+      "description": "Stop a running task and close its browser. A task that already finished is left unchanged.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "task_id": {
+            "type": "string",
+            "description": "The task_id returned by run_task or retrieve_data."
+          }
+        },
+        "required": [
+          "task_id"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "title": "Cancel a task",
+        "readOnlyHint": false,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": false
+      }
+    }
+  ]
+}
