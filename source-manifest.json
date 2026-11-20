@@ -3,6 +3,7 @@
   "description": "MCP source reorganized for publication; see README and SYNC.md.",
   "files": {
     ".gitignore": "1016888f076cfd2046fa0b6ad1b19763044d3335174e14f8e8c5b0ba8714ab0b",
+    ".mcp.json": "54955ea949bf1125d48cd93070ef3b24d99636ad6e3e8c7bd201c4fa3b44e188",
     "CONTRIBUTING.md": "d6aad7ca0b18727c76e8b6a501d2890770b82c18f393faa307a477f7ef91c070",
     "LICENSE": "bbe461e8550c481aa823d533b41e83817f9b7046960403d4926ae13ede49c631",
     "README.md": "9d369d1d2f40c57e7e91712ed7470b752c16e1c7c934408b1171584004a5d761",

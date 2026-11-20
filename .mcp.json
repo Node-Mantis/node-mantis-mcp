@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "node-mantis": {
+      "command": "npx",
+      "args": ["-y", "node-mantis", "mcp"],
+      "env": { "NODEMANTIS_API_KEY": "<your-api-key>" }
+    }
+  }
+}
