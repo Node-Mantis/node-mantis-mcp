@@ -1,5 +1,7 @@
 # Node Mantis MCP server
 
+[![Node-Mantis/node-mantis-mcp MCP server](https://glama.ai/mcp/servers/Node-Mantis/node-mantis-mcp/badges/score.svg)](https://glama.ai/mcp/servers/Node-Mantis/node-mantis-mcp)
+
 This MCP server connects your AI assistant to Node Mantis browser automation. Give Node Mantis a task in natural language, and it carries it out in a real browser, acting like a person: clicking buttons, filling forms, and interacting with complex widgets the way a person would. It can also read data from pages and return structured results.
 
 ## Connect your assistant
